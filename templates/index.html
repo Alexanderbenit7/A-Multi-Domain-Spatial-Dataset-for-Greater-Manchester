@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Greater Manchester Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="top-image">
+        <img src="{{ url_for('static', filename='gm.jpg') }}" />
+        <h1>Welcome to Greater Manchester!</h1>
+    </div>
+    
+    
+    <h2 class="data-title">Data Area</h2>
+    
+    
+    <div class="button-area">
+        {% for cat in categories %}
+            <a href="{{ url_for('category_page', category=cat) }}">
+                <button>{{ cat }}</button>
+            </a>
+        {% endfor %}
+    </div>
+    
+
+
+
+
+</body>
+</html>

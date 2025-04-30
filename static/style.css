@@ -1,0 +1,116 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.top-image {
+    position: relative;
+}
+
+.top-image img {
+    width: 100%;
+    height: 350px;
+    object-fit: cover;
+}
+
+.top-image h1 {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-size: 3em;
+    background-color: rgba(0,0,0,0.5);
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.button-area {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    max-width: 800px;
+    margin: 40px auto;
+}
+
+.button-area button {
+    padding: 15px 30px;
+    font-size: 18px;
+    border: none;
+    background-color:#0077cc;
+    color: white;
+    border-radius: 8px;
+    cursor: pointer;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.button-area button:hover {
+    background-color: #005fa3;
+}
+
+.data-title {
+    text-align: center;
+    font-size: 28px;
+    margin-top: 40px;
+    color: #333;
+}
+
+.form-area {
+    text-align: center;
+    margin-top: 40px;
+}
+
+.checkboxes label {
+    margin: 0 15px;
+    font-size: 18px;
+}
+
+.query-btn {
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 18px;
+    background-color: #0044cc;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.query-btn:hover {
+    background-color: #003399;
+}
+
+.geography-label {
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.header-image {
+    width: 100%;
+    height: 300px;              
+    background-image: url("/static/gm.jpg");
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .overlay {
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 20px 40px;
+    border-radius: 10px;
+  }
+  .overlay h1 {
+    color: white;
+    margin: 0;
+    font-size: 2.5em;
+  }
+  .content-area {
+    padding: 30px;
+  }
+  
+

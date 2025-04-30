@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{{ category }}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="top-image">
+        <img src="{{ url_for('static', filename='gm.jpg') }}" style="width: 100%; height: auto;" />
+        <h1 style="text-align: center;">{{ category }}</h1>
+    </div>
+
+    <div class="form-area">
+        <form method="POST" action="{{ url_for('third_page') }}">
+            <div style="display: flex; justify-content: center; margin-top: 30px;">
+                <label for="geo_level">Geographical level:</label>
+                <input type="radio" id="lsoa" name="geo_level" value="LSOA">
+                <label for="lsoa">LSOA (Lower super output layer)</label>
+                <input type="radio" id="msoa" name="geo_level" value="MSOA">
+                <label for="msoa">MSOA (Middle super output layer)</label>
+                <input type="hidden" name="category" value="{{ category }}">
+                <button type="submit" style="margin-left: 20px;">Query</button>
+            </div>
+        </form>
+        
+    </div>
+</body>
+</html>

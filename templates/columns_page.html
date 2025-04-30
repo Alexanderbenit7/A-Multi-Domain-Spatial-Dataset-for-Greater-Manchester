@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fourth Page</title>
+</head>
+<body>
+  
+  <div class="image-container">
+    <img src="{{ url_for('static', filename='gm.jpg') }}" alt="Header Image" width="100%">
+    <h1 class="image-title">select columns</h1>
+  </div>
+
+
+  <div>
+    <h2>Dataset: {{ alias }} ({{ table_name }})</h2>
+    <form method="POST" action="/finalquery">
+      <input type="hidden" name="table_name" value="{{ table_name }}">
+      <input type="hidden" name="selected_years_{{ alias }}" value="{{ table_name }}">
+      <input type="hidden" name="geo_level" value="{{ geo_level }}">
+      <input type="hidden" name="category" value="{{ category }}">
+
+      {% for col in column_names %}
+        <div class="column-item">
+          <input type="checkbox" name="columns" value="{{ col }}" id="{{ col }}">
+          <label for="{{ col }}">{{ col }}</label>
+        </div>
+      {% endfor %}
+
+      <br>
+      <button type="submit">query</button>
+    </form>
+  </div>
+</body>
+</html>

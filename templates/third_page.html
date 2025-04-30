@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>{{ category }} — table selection</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+
+  <div class="header-image">
+    <div class="overlay">
+      <h1>{{ category }}</h1>
+    </div>
+  </div>
+
+  <div class="content-area">
+    <form method="POST" action="/columns_page">
+      <input type="hidden" name="geo_level" value="{{ geo_level }}">
+      <input type="hidden" name="category" value="{{ category }}">
+
+      {% for alias, versions in datasets.items() %}
+        <div style="display: flex; gap: 10px; margin-bottom: 10px;">
+          <div style="width: 250px; font-weight: bold;">{{ alias }}</div>
+
+          <select name="selected_years_{{ alias }}">
+            {% for v in versions %}
+              <option value="{{ v.table_name }}">
+                {{ v.year if v.year else 'no year' }}
+              </option>
+            {% endfor %}
+          </select>
+
+          <button name="selected_dataset" value="{{ alias }}">query</button>
+        </div>
+      {% endfor %}
+    </form>
+  </div>
+
+</body>
+</html>

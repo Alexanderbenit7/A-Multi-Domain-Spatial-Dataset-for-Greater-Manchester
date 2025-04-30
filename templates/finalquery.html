@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>outcome and visualization</title>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <h1>{{ table_name }} outcome </h1>
+
+
+  <div style="width:80%; max-width:800px; margin:20px auto;">
+    <canvas id="myChart"></canvas>
+  </div>
+
+
+  <table border="1" cellspacing="0" cellpadding="5" style="margin:auto;">
+    <thead>
+      <tr>
+        {% for col in columns %}
+          <th>{{ col }}</th>
+        {% endfor %}
+      </tr>
+    </thead>
+    <tbody>
+      {% for row in rows %}
+        <tr>
+          {% for cell in row %}
+            <td>{{ cell }}</td>
+          {% endfor %}
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+
+
+  <script>
+    const rawRows = JSON.parse('{{ rows | tojson | safe }}');
+    const cols = JSON.parse('{{ columns | tojson | safe }}');
+
+    const xIdx = 0;
+    const yIdx = rawRows[0].length > 1 ? 1 : 0;
+    const labels     = rawRows.map(r => r[xIdx]);
+    const dataValues = rawRows.map(r => r[yIdx]);
+
+    const ctx = document.getElementById('myChart').getContext('2d');
+    new Chart(ctx, {
+      type: 'bar',
+      data: {
+        labels: labels,
+        datasets: [{
+          label: cols[yIdx],
+          data: dataValues,
+          borderWidth: 1
+        }]
+      },
+      options: {
+        responsive: true,
+        scales: {
+          x: { title: { display: true, text: cols[xIdx] } },
+          y: { beginAtZero: true, title: { display: true, text: cols[yIdx] } }
+        }
+      }
+    });
+  </script>
+</body>
+</html>

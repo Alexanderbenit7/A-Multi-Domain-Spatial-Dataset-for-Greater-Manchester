@@ -2,7 +2,8 @@
 ## Applying Data Science - DATA70202
 
 
-This repository contains all the code for data preprocessing steps related to the Multi-Domain Spatial Dataset for Greater Manchester. 
+This repository contains all the code with the data preprocessing steps and web app for the development of the Multi-domain Spatial Dataset for Greater Manchester (MDSD-GM).
+
 
 Members:
 

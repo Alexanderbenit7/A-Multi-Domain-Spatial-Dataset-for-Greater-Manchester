@@ -4,6 +4,7 @@
 
 This repository contains all the code with the data preprocessing steps and web app for the development of the Multi-domain Spatial Dataset for Greater Manchester (MDSD-GM).
 
+The MDSD-GM can be accessed through this link: <https://a-multi-domain-spatial-dataset-for-1764.onrender.com>
 
 Members:
 
